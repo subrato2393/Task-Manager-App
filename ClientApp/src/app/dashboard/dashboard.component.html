@@ -1,1 +1,352 @@
-<p>dashboard works!</p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page"><a routerLink="/">Home</a></li>
+      <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+  </nav>
+
+  <h5>Dashboard</h5>
+  <div class="row">
+    <div class="col-lg-3 pb-3" style="background-color: #e9e6e6">
+      <div class="row">
+        <div class="col-11 text-white text-center mx-auto rounded pt-2 pb-2 font-weight-bold" 
+        style="background-color: #a39e9e; font-family: 'Arial Narrow Bold', sans-serif;">
+          {{ Designation }}
+        </div>
+        <div class="col-12 text-center mt-2">
+          <img src="assets/user.png" width="120px" />
+        </div>
+        <div class="col-12 text-center pt-2 pb-2 font-weight-bold" style="font-family: Tahoma">
+          <b>{{ Username }}</b>
+        </div>
+        <div class="col-12 text-center pt-2 pb-2" style="font-family: Arial">
+          <b>TEAM SUMMARY</b>
+        </div>
+        <div class="col-12 mb-3">
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               <span style="font-size: 13px; font-weight: bold; ">NO. OF TEAM MEMBERS</span> 
+              <span  class="badge bg-secondary badge-pill" style="font-size: 12px">{{ NoOfTeamMembers }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+             <span style="font-size: 13px; font-weight: bold; ">TOTAL COST OF ALL PROJECTS</span> 
+              <span  class="badge bg-secondary badge-pill" style="font-size: 12px" >$ {{ TotalCostOfAllProjects }} k</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span style="font-size: 13px; font-weight: bold; ">PENDING TASKS</span> 
+              <span class="badge bg-secondary badge-pill" style="font-size: 12px">{{ PendingTasks }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span style="font-size: 13px; font-weight: bold; ">UPCOMING PROJECTS</span> 
+              <span class="badge bg-secondary badge-pill" style="font-size: 12px">{{ UpComingProjects }}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 text-center pt-2 pb-2" style="font-family: 'Arial Narrow'">
+          <b>CLIENTS</b>
+        </div>
+        <div class="col-12">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">ABC Infotech Ltd.</li>
+            <li class="list-group-item">DEF Software Solutions</li>
+            <li class="list-group-item">GHI Industries</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-12 pt-0 pb-2" style="background-color: #e9e6e6">
+          <div class="row mt-2">
+            <div class="col-6 text-left">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Project A
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Project A</a></li>
+                  <li><a class="dropdown-item" href="#">Project B</a></li>
+                  <li><a class="dropdown-item" href="#">Project C</a></li>
+                  <li><a class="dropdown-item" href="#">Project D</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 text-right">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  2019
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">2019</a></li>
+                  <li><a class="dropdown-item" href="#">2018</a></li>
+                  <li><a class="dropdown-item" href="#">2017</a></li>
+                  <li><a class="dropdown-item" href="#">2016</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-11 mx-auto mt-1 text-white text-center pt-2 pb-2 mx-auto rounded font-weight-bold"
+          style="background-color: #718d97; font-family: 'Arial Narrow';font-weight: bold">
+          PROJECT BRIEFING
+        </div>
+
+        <div class="col-12">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>Project Cost</td>
+                <td>${{ ProjectCost }}</td>
+              </tr>
+              <tr>
+                <td>Current Expenditure</td>
+                <td>${{ CurrentExpenditure }}</td>
+              </tr>
+              <tr>
+                <td>Available Funds</td>
+                <td>${{ AvailableFunds }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-11 mx-auto mt-1 text-white text-center pt-2 pb-2 mx-2 rounded font-weight-bold"
+          style="background-color: #718d97; font-family: 'Arial Narrow';font-weight: bold;">
+          TEAM MEMBERS SUMMARY
+        </div>
+        <div class="col-12">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>Team Members Count</th>
+                <th>Temporarily Unavailable Members</th>
+              </tr>
+            </thead>
+         <tbody>
+          <tr>
+            <td>
+              <b>East</b>
+            </td>
+            <td>20</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td>
+              <b>South</b>
+            </td>
+            <td>15</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>
+              <b>West</b>
+            </td>
+            <td>17</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>
+              <b>North</b>
+            </td>
+            <td>15</td>
+            <td>6</td>
+          </tr>
+         </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3" style="background-color: #e9e6e6">
+      <div class="row">
+        <div
+          class="col-11 mx-auto mt-1 text-white text-center pt-1 pb-2 mx-2 rounded font-weight-bold"
+          style="background-color: #718d97; font-family: 'Arial Narrow'; font-weight: bold;">
+          TEAM MEMBERS
+        </div>
+        <div class="col-lg-12 pt-2">
+          <div class="accordion" id="accordion1">
+
+              <!-- east starts -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  East
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ford</td>
+                        <td><i class="fa fa-phone"></i> Available</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Miller</td>
+                        <td><i class="fa fa-phone"></i> Available</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Jones</td>
+                        <td><i class="fa fa-user-times"></i> Busy</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>James</td>
+                        <td><i class="fa fa-user-times"></i> Busy</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+<!-- south starts -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              South
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Ford</td>
+                    <td><i class="fa fa-phone"></i> Available</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Miller</td>
+                    <td><i class="fa fa-phone"></i> Available</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Jones</td>
+                    <td><i class="fa fa-user-times"></i> Busy</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>James</td>
+                    <td><i class="fa fa-user-times"></i> Busy</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- south end -->
+
+            <!-- west starts -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingWest">
+                <button class="accordion-button btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWest" aria-expanded="true" aria-controls="collapseWest">
+                  West
+                </button>
+              </h2>
+              <div id="collapseWest" class="accordion-collapse collapse" aria-labelledby="headingWest" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ford</td>
+                        <td><i class="fa fa-phone"></i> Available</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Miller</td>
+                        <td><i class="fa fa-phone"></i> Available</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Jones</td>
+                        <td><i class="fa fa-user-times"></i> Busy</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>James</td>
+                        <td><i class="fa fa-user-times"></i> Busy</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- west ends -->
+  
+            <!-- north starts -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingNorth">
+                <button class="accordion-button btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNorth" aria-expanded="true" aria-controls="collapseNorth">
+                  North
+                </button>
+              </h2>
+              <div id="collapseNorth" class="accordion-collapse collapse" aria-labelledby="headingNorth" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Ford</td>
+                        <td><i class="fa fa-phone"></i> Available</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Miller</td>
+                        <td><i class="fa fa-phone"></i> Available</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Jones</td>
+                        <td><i class="fa fa-user-times"></i> Busy</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>James</td>
+                        <td><i class="fa fa-user-times"></i> Busy</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -7,9 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  Designation: any;
+  Username: any;
+  NoOfTeamMembers: any;
+  TotalCostOfAllProjects: any;
+  PendingTasks: any;
+  UpComingProjects: any;
+  ProjectCost: any;
+  CurrentExpenditure: any;
+  AvailableFunds: any;
 
-  ngOnInit(): void {
+  Clients: any;
+  Projects: any;
+  Years: number[] = [];
+  TeamMembersSummary = [];
+  TeamMembers = [];
+
+  constructor() { 
+ 
   }
 
+
+
+  ngOnInit() {
+    this.Designation = 'Team Leader';
+    this.Username = 'Scott Smith';
+    this.NoOfTeamMembers = 67;
+    this.TotalCostOfAllProjects = 240;
+    this.PendingTasks = 15;
+    this.UpComingProjects = 2;
+    this.ProjectCost = 2113507;
+    this.CurrentExpenditure = 96788;
+    this.AvailableFunds = 52536;
+  }
 }
