@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   Years: number[] = [];
   ProjectBreafing:any[]=[];
   TeamMembersSummary:any[] = [];
+  ActiveIndex: number = 0;
 
   TeamMembers:any[] = [];
 
@@ -108,4 +109,26 @@ this.TeamMembers =[
 ]
   };
 
+  onButtonClick(event:any){
+  console.log(event.target.innerHTML)
+  if(event.target.innerHTML== "Project A"){
+    this.ProjectBreafing=[
+      {Title:"Project Cost", Cost:"$9999"},
+      {Title:"Current Expenditure", Cost:"$3333"},
+      {Title:"Available Funds", Cost:"$521112536"}
+    ];
+  }
+  else if(event.target.innerHTML== "Project B"){
+    this.ProjectBreafing=[
+      {Title:"Project Cost", Cost:"$444"},
+      {Title:"Current Expenditure", Cost:"$111111"},
+      {Title:"Available Funds", Cost:"$0000"}
+    ];
+  }
+ 
+  }
+  toggle(i:any){
+    this.ActiveIndex = i;
+    console.log(i+"---")
+  }
 }
