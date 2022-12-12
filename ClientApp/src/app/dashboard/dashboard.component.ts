@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
   ProjectBreafing:any[]=[];
   TeamMembersSummary:any[] = [];
   ActiveIndex: number = 0;
-
+  today=new Date();
   TeamMembers:any[] = [];
 
   constructor() { 
@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit {
     this.NoOfTeamMembers = 67;
     this.TotalCostOfAllProjects = 240;
     this.PendingTasks = 15;
-    this.UpComingProjects = 2;
+    this.UpComingProjects = 0.2;
     this.ProjectCost = 2113507;
     this.CurrentExpenditure = 96788;
     this.AvailableFunds = 52536;
@@ -55,9 +55,9 @@ export class DashboardComponent implements OnInit {
   };
 
   this.ProjectBreafing=[
-    {Title:"Project Cost", Cost:"$2113507"},
-    {Title:"Current Expenditure", Cost:"$96788"},
-    {Title:"Available Funds", Cost:"$52536"}
+    {Title:"Project Cost", Cost:2113507},
+    {Title:"Current Expenditure", Cost:96788},
+    {Title:"Available Funds", Cost:52536}
   ];
 
   this.TeamMembersSummary=[
