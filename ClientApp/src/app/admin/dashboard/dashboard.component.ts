@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from '../models/project.model';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,14 +27,16 @@ export class DashboardComponent implements OnInit {
   ActiveIndex: number = 0;
   today=new Date();
   TeamMembers:any[] = [];
+  projectList:Project[]=[];
 
-  constructor() { 
+  constructor(private projectService:ProjectService) { 
  
   }
 
 
 
   ngOnInit() {
+    this.getAllProjectList();
     this.Designation = 'Team Leader';
     this.Username = 'Scott Smith';
     this.NoOfTeamMembers = 67;
@@ -130,5 +134,13 @@ this.TeamMembers =[
   toggle(i:any){
     this.ActiveIndex = i;
     console.log(i+"---")
+  }
+
+  getAllProjectList(){
+    this.projectService.getProjectList().subscribe((response)=>{
+      this.projectList=response;
+      console.log("project list");
+      console.log(this.projectList);
+    })
   }
 }
