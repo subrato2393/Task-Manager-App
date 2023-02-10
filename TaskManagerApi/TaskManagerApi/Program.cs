@@ -1,27 +1,28 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using TaskmanagerApi;
+using TaskManagerApi.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCors(options =>
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("https://localhost:7194/");
-                      });
-});
+    build.WithOrigins("http://localhost:4200").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+}));
 
 var connectionString = builder.Configuration.GetConnectionString("TaskManagerApi");
 builder.Services.AddDbContext<TaskManagerDbContext>(option => option.UseSqlServer(connectionString));
+
+//adding extension method
+builder.Services.ConfigureServices();
+
 
 var app = builder.Build();
 
@@ -34,7 +35,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors(MyAllowSpecificOrigins);
+app.UseCors("corspolicy");
 
 app.UseAuthorization();
 
