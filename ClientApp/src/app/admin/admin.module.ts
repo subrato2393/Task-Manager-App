@@ -4,16 +4,19 @@ import { DashboardComponent } from '../admin/dashboard/dashboard.component';
 import { ContactComponent } from '../admin/contact/contact.component';
 import { AboutComponent } from '../admin/about/about.component';
 import { AdminRoutingModule } from './admin-routing.module';
-
+import {ProjectListComponent} from '../admin/project/project-list/project-list.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     DashboardComponent,
     ContactComponent,
+    ProjectListComponent,
     AboutComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
   ]
 })
 export class AdminModule { }

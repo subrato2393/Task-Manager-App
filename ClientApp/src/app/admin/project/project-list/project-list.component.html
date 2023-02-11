@@ -1,0 +1,61 @@
+
+
+<table class="team">
+  <!-- Open Popup for add team -->
+  <button class="btn btn-success add-team-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</button>
+  
+  <tr>
+    <th>Project Name</th>
+    <th>Team Size</th>
+    <th>Start Date</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let project of this.projectList">
+    <td class="td-projectname">{{project.projectName}}</td>
+    <td>
+     {{project.teamSize}}
+    </td>
+    <td>
+      {{project.dateOfStart | date }}
+    </td>
+    <td>
+     <button class="edit-btn" [routerLink]="['/update-teamdetails', project.projectId]">Edit</button>
+     <button class="delete-btn" (click)="deleteItem(project)">Delete</button>
+    </td>
+   </tr>
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modaltitle">Add New Team</span>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="projectName" class="form-label">Project Name</label>
+          <input type="text"  class="form-control" id="projectName" placeholder="Project Name" [(ngModel)]="aProject.projectName">
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="teamSize" class="form-label">Team Size</label>
+            <input type="text" class="form-control" id="teamSize" placeholder="Team Size" [(ngModel)]="aProject.teamSize">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input type="date" class="form-control" id="startDate" placeholder="Start Date" [(ngModel)]="aProject.dateOfStart">
+          </div>
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSaveclick()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

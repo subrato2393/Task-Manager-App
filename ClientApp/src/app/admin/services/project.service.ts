@@ -14,4 +14,8 @@ export class ProjectService {
     // now returns an Observable of Config
     return this.http.get<Project[]>('https://localhost:7194/api/Project/get-allproject-list');
   }
+  saveProject(model:any) {
+    // now returns an Observable of Config
+    return this.http.post('https://localhost:7194/api/Project/save-project',model);
+  }
 }
