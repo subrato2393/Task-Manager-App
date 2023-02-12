@@ -18,4 +18,15 @@ export class ProjectService {
     // now returns an Observable of Config
     return this.http.post('https://localhost:7194/api/Project/save-project',model);
   }
+
+  updateProject(model:any) {
+    // now returns an Observable of Config
+    return this.http.put('https://localhost:7194/api/Project/update-project',model);
+  }
+
+  deleteProject(id:any) {
+    // now returns an Observable of Config
+    return this.http.delete('https://localhost:7194/api/Project/delete-project?projectId='+id);
+  }
+
 }

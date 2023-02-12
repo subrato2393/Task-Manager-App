@@ -6,6 +6,7 @@ import { AboutComponent } from '../admin/about/about.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import {ProjectListComponent} from '../admin/project/project-list/project-list.component';
 import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     DashboardComponent,

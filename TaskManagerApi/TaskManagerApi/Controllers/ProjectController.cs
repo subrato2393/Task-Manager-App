@@ -48,7 +48,7 @@ namespace TaskManagerApi.Controllers
         }
 
         [HttpPut] 
-        [Route("update-project/{id}")]
+        [Route("update-project")]
         public async Task<ActionResult> Update([FromBody] ProjectDto projectDto)
         {
             var existingProject = _context.Projects.Find(projectDto.ProjectId);

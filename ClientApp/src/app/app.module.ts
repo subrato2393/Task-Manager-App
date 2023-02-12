@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatePipe } from '@angular/common'
 //import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     AdminModule,
@@ -19,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

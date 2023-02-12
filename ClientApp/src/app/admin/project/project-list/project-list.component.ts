@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-project-list',
@@ -10,17 +11,13 @@ import { ProjectService } from '../../services/project.service';
 
 export class ProjectListComponent implements OnInit {
 
+  showDeleteModal:boolean =false;
+  deleteProjectId:any;
   projectList:Project[]=[];
-  public aProject : any=
-  {
-    projectId:0,
-    projectName:'',
-    dateOfStart:new Date(),
-    teamSize:0
-  };
+  public aProject : Project= new Project();
+  public editProject : Project =new Project();
  
-
-  constructor(private projectService:ProjectService) { 
+  constructor(private projectService:ProjectService,private datepipe: DatePipe) { 
  
   }
 
@@ -46,15 +43,47 @@ export class ProjectListComponent implements OnInit {
     },
     (error)=>
     {
-
+       console.log(error);
     })
     console.log(this.aProject)
   }
-
   emptyText(){
     this.aProject.projectId=0;
     this.aProject.projectName='';
     this.aProject.teamSize = 0;
     this.aProject.dateOfStart=new Date();
+  }
+
+  onEditClick(i:any){
+    this.editProject.projectId = this.projectList[i].projectId;
+    this.editProject.projectName =this.projectList[i].projectName;
+    this.editProject.teamSize =this.projectList[i].teamSize;
+   // this.editProject.dateOfStart=this.datepipe.transform(this.projectList[i].dateOfStart, 'yyyy-MM-dd');
+
+  // this.editProject.dateOfStart=this.datepipe.transform(this.projectList[i].dateOfStart, 'yyyy-MM-dd');
+    //var date=new Date();
+   
+  }
+  onUpdateclick(){
+  this.projectService.updateProject(this.editProject).subscribe((response)=>{
+    this.getAllProjectList();
+  }
+  ,(error)=>{
+    console.log(error);
+  })
+  }
+  onDeleteClick(i:any){
+  this.showDeleteModal =true;
+  this.deleteProjectId = this.projectList[i].projectId;
+  }
+
+  onDeleteConfirmClick(){
+     this.projectService.deleteProject(this.deleteProjectId).subscribe((response)=>{
+      this.getAllProjectList();
+     },
+     (error)=>
+     {
+       console.log(error);
+     })
   }
 }
