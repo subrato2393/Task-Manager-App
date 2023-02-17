@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project.model';
 import { ProjectService } from '../../services/project.service';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { MasterData } from 'src/app/data/MasterData';
 
 @Component({
   selector: 'app-project-list',
@@ -16,7 +17,16 @@ export class ProjectListComponent implements OnInit {
   projectList:Project[]=[];
   public aProject : Project= new Project();
   public editProject : Project =new Project();
- 
+  masterData = MasterData;
+ // responsive:boolean = true;
+
+  paging = {
+    pageIndex: this.masterData.paging.pageIndex,
+    pageSize: this.masterData.paging.pageSize,
+    length: 1
+  }
+  searchText="";
+
   constructor(private projectService:ProjectService,private datepipe: DatePipe) { 
  
   }
@@ -25,8 +35,11 @@ export class ProjectListComponent implements OnInit {
     this.getAllProjectList();
   };
 
+  handlePageChange(event:any){
+
+  }
   getAllProjectList(){
-    this.projectService.getProjectList().subscribe((response)=>{
+    this.projectService.getProjectListPagging(this.paging.pageIndex,this.paging.pageSize,this.searchText).subscribe((response)=>{
       this.projectList=response;
       console.log("project list");
       console.log(this.projectList);

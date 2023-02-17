@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskmanagerApi;
 using TaskManagerApi.DTOs;
+using TaskManagerApi.DTOs.Common;
 
 namespace TaskManagerApi.Controllers
 {
@@ -19,9 +20,14 @@ namespace TaskManagerApi.Controllers
         
         [HttpGet] 
         [Route("get-allproject-list")]
-        public async Task<IActionResult> GetAllProjectrList()
-        {
-            var project = _context.Projects.ToList();
+        public async Task<IActionResult> GetAllProjectrList([FromQuery] QueryParams queryParams)
+        {    
+            var projectList = _context.Projects.ToList();
+
+            var totalCount = projectList.Count();
+
+            var project = projectList.Skip((queryParams.PageNumber - 1) * queryParams.PageSize).Take(queryParams.PageSize);
+
             return Ok(project);
         }
 

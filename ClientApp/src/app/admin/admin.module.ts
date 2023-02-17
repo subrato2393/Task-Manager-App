@@ -6,6 +6,7 @@ import { AboutComponent } from '../admin/about/about.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import {ProjectListComponent} from '../admin/project/project-list/project-list.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     FormsModule,
     CommonModule,
+    NgxPaginationModule,
     AdminRoutingModule,
   ]
 })
